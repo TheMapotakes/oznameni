@@ -1,0 +1,173 @@
+
+/* Main Sass file. */
+.notifications-header {
+  font-family: @font-family-base;
+  color: #666666;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+  padding: 30px 0;
+  margin: 0;
+  border-bottom: 1px #E6E6E6 solid;
+}
+
+.notifications {
+  //background: blue;
+}
+.notification {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px #E6E6E6 solid;
+  color: #FFF;
+
+  &.notification-electricity {
+    .notification-content {
+      background: #48d984;
+    }
+  }
+  &.notification-water-cold {
+    .notification-content {
+      background: #78a8c2;
+    }
+  }
+  &.notification-water-hot {
+    .notification-content {
+      background: #ff6c4f;
+    }
+  }
+  p {
+    margin: 15px 0 0 0;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  .notification-left {
+    width: 80px;
+    float: left;
+    text-align: center;
+  }
+  .notification-date-wrapper {
+    background-color:  #ebebeb;
+    border-radius: 3px;
+    height: 40px;
+    max-height: 40px;
+    box-sizing: border-box;
+    padding: 4px 6px;
+    text-align: center;
+    display: inline-block;
+  }
+  .notification-date {
+    display: inline-block;
+    .day {
+      display: block;
+      // font-family: NotoSans;
+      color: #e74c3c;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 18px;
+    }
+    .month {
+      display: block;
+      // font-family: NotoSans;
+      color: #999999;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 12px;
+      height: 10px;
+      text-transform: uppercase;
+    }
+  }
+  .notification-time {
+    font-family: "Myriad Pro";
+    color: #e74c3c;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    margin-top: 8px;
+  }
+  .notification-content {
+    margin-left: 113px;
+    position: relative;
+    border-radius: 5px;
+    &:before {
+      content: url('../images/notification-dot.png');
+      position: absolute;
+      top: 29px;
+      left: -28px;
+    }
+  }
+  .notification-haeder {
+    padding: 20px;
+    padding-right: 65px;
+    // font-family: NotoSans;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    .read-more {
+      display: inline-block;
+      margin-left: 5px;
+      // font-family: NotoSans;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 12px;
+      font-weight: 400;
+      cursor: pointer;
+      &:after {
+        content: '';
+        position: relative;
+        top: 2px;
+        display: inline-block;
+        margin-left: 3px;
+        border-style: solid;
+        border-width: 4px 3px;
+        border-color: rgba(255,255,255,0.5) transparent transparent transparent;
+      }
+      &.is-active {
+        &:after {
+          top: -2px;
+          border-color: transparent transparent rgba(255,255,255,0.5) transparent;
+        }
+      }
+    }
+    .notification-icon {
+      position: absolute;
+      top: 9px;
+      right: 15px;
+      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      background-color: rgba(0,0,0,0.2);
+
+      &.icon-electricity{
+        // background-image: ;
+      }
+    }
+  }
+
+  .notification-description {
+    padding: 0 20px 15px 20px;
+    display: none;
+    &.is-opened {
+      display: block;
+    }
+  }
+  .notification-footer {
+    display: none;
+    padding: 7px 20px;
+    background: rgba(0,0,0,0.1);
+    // font-family: NotoSans;
+    color:  rgba(255, 255, 255, 0.7);
+    font-size: 14px; /* Approximation due to font substitution */
+    font-weight: 400;
+    &.is-opened {
+      display: block;
+    }
+    p {
+      margin-top: 10px;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
