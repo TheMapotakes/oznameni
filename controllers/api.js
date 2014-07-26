@@ -153,6 +153,72 @@ exports.postFacebook = function(req, res, next) {
 };
 
 /**
+ * GET /api/odnoklassniki
+ * odnoklassniki API example.
+ */
+
+exports.getOdnoklassniki = function(req, res, next) {
+  //TODO
+  // var token = _.find(req.user.tokens, { kind: 'odnoklassniki' });
+  // graph.setAccessToken(token.accessToken);
+  // async.parallel({
+  //   getMe: function(done) {
+  //     graph.get(req.user.facebook, function(err, me) {
+  //       done(err, me);
+  //     });
+  //   },
+  //   getMyFriends: function(done) {
+  //     graph.get(req.user.facebook + '/friends', function(err, friends) {
+  //       done(err, friends.data);
+  //     });
+  //   }
+  // },
+  // function(err, results) {
+  //   if (err) return next(err);
+  //   res.render('api/facebook', {
+  //     title: 'Facebook API',
+  //     me: results.getMe,
+  //     friends: results.getMyFriends
+  //   });
+  // });
+};
+
+/**
+ * POST /api/odnoklassniki
+ * @param body.notification -> text to send in notification
+ */
+
+exports.postOdnoklassniki = function(req, res, next) {
+  // var hard_code_app_token = '1489674451274339|ajrXp8uos35biiqGvT8ZFD3zyGE'
+
+
+  // var token = _.find(req.user.tokens, { kind: 'odnoklassniki' });
+  // graph.setAccessToken(token.accessToken);
+
+  // var fb_notification_link = "http://api.odnoklassniki.ru/api/notifications/sendSimple"
+  //   // + hard_code_app_token
+  //   // + "&href=http://localhost:4000/&template="
+  //   // + req.body.notification
+  //   // MD5.encrypt(signature);
+
+  // var notification = {
+  //   accessToken: hard_code_app_token,
+  //   href: "https://apps.facebook.com/sistari",
+  //   template: req.body.notification,
+  // };
+
+  // request.post(fb_notification_link,
+  //   notification,
+  //   function (error, response, body) {
+  //     console.log(body)
+  //     if (!error && response.statusCode == 200) {
+  //         req.flash('success', { msg: 'Notification Sent successfully to Facebook'});
+  //         res.redirect('/account');
+  //     }
+  // });
+};
+
+/**
  * GET /api/scraping
  * Web scraping example using Cheerio library.
  */

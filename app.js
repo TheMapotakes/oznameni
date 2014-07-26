@@ -155,6 +155,8 @@ app.get('/api/foursquare', passportConf.isAuthenticated, passportConf.isAuthoriz
 app.get('/api/tumblr', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getTumblr);
 app.get('/api/facebook', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getFacebook);
 app.post('/api/facebook', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.postFacebook);
+app.get('/api/odnoklassniki', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getOdnoklassniki);
+app.post('/api/odnoklassniki', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.postOdnoklassniki);
 app.get('/api/github', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getGithub);
 app.get('/api/twitter', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getTwitter);
 app.post('/api/twitter', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.postTwitter);
@@ -174,6 +176,10 @@ app.get('/auth/instagram/callback', passport.authenticate('instagram', { failure
 });
 app.get('/auth/facebook', passport.authenticate('facebook-canvas', { scope: ['email', 'user_location'] }));
 app.get('/auth/facebook/callback', passport.authenticate('facebook-canvas', { failureRedirect: '/login' }), function(req, res) {
+  res.redirect(req.session.returnTo || '/');
+});
+app.get('/auth/odnoklassniki', passport.authenticate('odnoklassniki', { scope: ['user_status'] }));
+app.get('/auth/odnoklassniki/callback', passport.authenticate('odnoklassniki', { failureRedirect: '/login' }), function(req, res) {
   res.redirect(req.session.returnTo || '/');
 });
 app.get('/auth/github', passport.authenticate('github'));

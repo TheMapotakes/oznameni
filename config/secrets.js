@@ -53,6 +53,13 @@ module.exports = {
     passReqToCallback: true
   },
 
+  odnoklassniki: {
+    clientID: process.env.ODNOKLASSNIKI_APP_ID || '1096544768',
+    clientPublic: process.env.ODNOKLASSNIKI_APP_PUBLIC_KEY || 'CBADPMFCEBABABABA',
+    clientSecret: process.env.ODNOKLASSNIKI_APP_SECRET_KEY || '68821420F217B1A5943105D4',
+    callbackURL: '/auth/odnoklassniki/callback',
+  },
+
   instagram: {
     clientID: process.env.INSTAGRAM_ID || '9f5c39ab236a48e0aec354acb77eee9b',
     clientSecret: process.env.INSTAGRAM_SECRET || '5920619aafe842128673e793a1c40028',

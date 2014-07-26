@@ -3,6 +3,7 @@ var passport = require('passport');
 var InstagramStrategy = require('passport-instagram').Strategy;
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook-canvas').Strategy;
+var OdnoklassnikiStrategy = require('passport-odnoklassniki').Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
 var GitHubStrategy = require('passport-github').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -133,6 +134,51 @@ passport.use(new FacebookStrategy(secrets.facebook, function(req, accessToken, r
           user.profile.gender = profile._json.gender;
           user.profile.picture = 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
           user.profile.location = (profile._json.location) ? profile._json.location.name : '';
+          user.save(function(err) {
+            done(err, user);
+          });
+        }
+      });
+    });
+  }
+}));
+
+passport.use(new OdnoklassnikiStrategy(secrets.odnoklassniki, function(req, accessToken, refreshToken, profile, done) {
+if (req.user) {
+    User.findOne({ odnoklassniki: profile.id }, function(err, existingUser) {
+      if (existingUser) {
+        req.flash('errors', { msg: 'There is already a odnoklassniki account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
+        done(err);
+      } else {
+        User.findById(req.user.id, function(err, user) {
+          user.odnoklassniki = profile.id;
+          user.tokens.push({ kind: 'odnoklassniki', accessToken: accessToken });
+          user.profile.name = user.profile.name || profile.displayName;
+          // user.profile.gender = user.profile.gender || profile._json.gender;
+          // user.profile.picture = user.profile.picture || 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
+          user.save(function(err) {
+            req.flash('info', { msg: 'odnoklassniki account has been linked.' });
+            done(err, user);
+          });
+        });
+      }
+    });
+  } else {
+    User.findOne({ odnoklassniki: profile.id }, function(err, existingUser) {
+      if (existingUser) return done(null, existingUser);
+      User.findOne({ email: profile._json.email }, function(err, existingEmailUser) {
+        if (existingEmailUser) {
+          req.flash('errors', { msg: 'There is already an account using this email address. Sign in to that account and link it with odnoklassniki manually from Account Settings.' });
+          done(err);
+        } else {
+          var user = new User();
+          user.email = profile._json.email;
+          user.odnoklassniki = profile.id;
+          user.tokens.push({ kind: 'odnoklassniki', accessToken: accessToken });
+          user.profile.name = profile.displayName;
+          // user.profile.gender = profile._json.gender;
+          // user.profile.picture = 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
+          // user.profile.location = (profile._json.location) ? profile._json.location.name : '';
           user.save(function(err) {
             done(err, user);
           });
