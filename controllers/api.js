@@ -189,6 +189,27 @@ exports.getOdnoklassniki = function(req, res, next) {
  */
 
 exports.postOdnoklassniki = function(req, res, next) {
+  var token = _.find(req.user.tokens, { kind: 'odnoklassniki' });
+
+  ok = require("ok.ru")
+
+  // Basic configuration params
+  requestOptions = {
+    applicationSecretKey: '1096544768',
+    applicationKey: 'CBADPMFCEBABABABA',
+    applicationId: '68821420F217B1A5943105D4',
+  };
+
+  ok.setOptions(requestOptions);
+  // You can specify accessToken in requestOptions or separately
+  // For example: if you have many users and you whant to iterate through them
+  ok.setAccessToken(token.accessToken);
+  ok.get({ method: 'notifications.sendSimple' }, function (error, data) {
+    console.log(error);
+    console.log("----");
+    console.log(data);
+  });
+
   // var hard_code_app_token = '1489674451274339|ajrXp8uos35biiqGvT8ZFD3zyGE'
 
 
