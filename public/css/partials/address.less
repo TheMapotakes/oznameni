@@ -1,2 +1,64 @@
-.address
-  //
+.address {
+  height: 215px;
+  text-align: center;
+  background-color:  rgba(255, 255, 255, 0.2);
+  margin: 62px 0 0;
+  padding: 22px 0 0;
+
+  h5{
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 21px;
+    text-transform: uppercase;
+
+  }
+
+  .selects{
+    padding: 18px 0 0;
+
+    .select2.select2-container{
+      text-align: left;
+      line-height: 20px;
+      margin: 0 4px;
+
+      .select2-choice {
+        height: 45px;
+        line-height: 44px;
+        background: transparent;
+        border-color: #fff;
+        color: #fff;
+      }
+
+      .select2-arrow{
+        background: transparent;
+        border-left: 0;
+      }
+    }
+  }
+
+  .action{
+    position: relative;
+    overflow: hidden;
+    padding: 24px 0 0;
+
+    &:before, &:after{
+      content: '';
+      display: block;
+      position: absolute;
+      height: 1px;
+      width: 300px;
+      background: #fff;
+      top: 43px;
+    }
+
+    &:before{
+      right: 50%;
+      margin: 0 150px 0 0;
+    }
+
+    &:after{
+      left: 50%;
+      margin: 0 0 0 150px;
+    }
+  }
+}

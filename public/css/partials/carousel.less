@@ -1,0 +1,43 @@
+.carousel{
+  padding: 40px 0;
+  .item{
+    .image{
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+    .pane{
+      color: #666;
+      .title{
+        font-size: 30px;
+        padding: 0 20px 10px;
+        text-transform: uppercase;
+      }
+      p{
+        font-size: 18px;
+        padding: 8px 20px;
+      }
+    }
+  }
+
+  .carousel-indicators{
+    bottom: 2px;
+    li{
+      width: 6px;
+      height: 6px;
+      border-radius: 3px;
+      background: #707070;
+      margin: 0 6px;
+      border: 1px solid transparent;
+      &.active{
+        width: 8px;
+        height: 8px;
+        margin: -1px 5px;
+        background: transparent;
+        border: 1px solid #707070;
+      }
+    }
+  }
+}

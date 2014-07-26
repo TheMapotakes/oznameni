@@ -18,12 +18,13 @@
 
 @text-color: #fff;
 @text-color-hover: @brand-danger;
+@text-red: #c0392b;
 // Footer
 // -------------------------
 
 footer {
   color: #fff;
-  background-color: @gray-darker;
+  background-color: #333333;
 
   a:hover {
     color: #fff;
@@ -66,7 +67,7 @@ a {
 // -------------------------
 
 @btn-default-bg: @gray-lighter;
-@btn-default-color: @gray-darker;
+@btn-default-color: @text-red;
 
 .btn {
   padding: 10px 16px;
@@ -98,6 +99,10 @@ a {
   }
 }
 
+.btn-default {
+  border-bottom: 2px solid #cccccc;
+}
+
 // Forms
 // -------------------------
 
@@ -125,7 +130,7 @@ a {
 // -------------------------
 
 @navbar-height: 67px;
-@navbar-default-bg: transparent;
+@navbar-default-bg: rgba(17, 150, 141, 0.7);
 @navbar-default-link-color: @gray-darker;
 @navbar-default-link-active-color: @brand-primary;
 @navbar-default-link-active-bg: transparent;
@@ -162,12 +167,12 @@ a {
   padding-bottom: 12px;
 }
 
-// Header
+// Includes
 // -------------------------
 
 @import "../partials/header";
-
-// Notifications
-// -------------------------
-
 @import "../partials/notifications";
+@import "../partials/address";
+@import "../partials/preservices";
+@import "../partials/services";
+@import "../partials/carousel";

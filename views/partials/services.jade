@@ -1,0 +1,63 @@
+.services#services
+  .container
+    form.form-finish(action="")
+      .container
+        .row
+          .col-md-4.col-md-offset-1
+            h3.form-header Selectează serviciile pentru care dorești să primești notificări
+            .tilda
+            .form-content
+              .form-row
+                input(type="checkbox" id="service-electricity")
+                label(for="service-electricity")
+                  i.icon-electricity-green
+                  | Union Fenosa
+              .form-row
+                input(type="checkbox" id="service-gass")
+                label(for="service-gass")
+                  i.icon-gass-green
+                  | gasNatural Fenosa
+              .form-row
+                input(type="checkbox" id="service-water")
+                label(for="service-water")
+                  i.icon-water-green
+                  | Moldova Apa-Canal
+              .form-row
+                input(type="checkbox" id="service-internet")
+                label(for="service-internet")
+                  i.icon-internet-green
+                  | Starnet
+          .col-md-1.col-md-offset-1.center-border
+          .col-md-4
+            h3.form-header Selectează metodele prin care dorești să fii notificat
+            .tilda
+            .form-content
+              .form-row
+                input(type="checkbox" id="notification-email")
+                label(for="notification-email")
+                  i.icon-email
+                  | Email
+                a.connect-icon(href="#" data-connect="email")
+              .form-row
+                input(type="checkbox" id="notification-facebook")
+                label(for="notification-facebook")
+                  i.icon-facebook
+                  | Facebook
+                a.connect-icon.is-active(href="#" data-connect="facebook")
+              .form-row
+                input(type="checkbox" id="notification-ok")
+                label(for="notification-ok")
+                  i.icon-ok
+                  | Odnoklassniki
+                a.connect-icon(href="#" data-connect="ok")
+              .form-row
+                input(type="checkbox" id="notification-sms")
+                label(for="notification-sms")
+                  i.icon-sms
+                  | SMS
+                a.connect-icon(href="#" data-connect="sms")
+        .row
+          .col-md-12
+            .form-actions
+              input.form-submit(type="submit" value="Finalizeaza")
+

@@ -15,4 +15,5 @@
 
 //= require lib/jquery-2.1.1.min
 //= require lib/bootstrap.min
+//= require lib/select2
 //= require main

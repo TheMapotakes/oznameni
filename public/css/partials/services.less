@@ -1,0 +1,148 @@
+.services {
+  overflow: hidden;
+  clear: both;
+  background: url('../images/phone-bg.png') no-repeat center center;
+  background-size: auto 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.tilda {
+  background: url('../images/tilda.png') no-repeat center center;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+.form-finish {
+  .center-border {
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 1px;
+      height: 265px;
+      left: 0;
+      top: 50px;
+      background: rgba(255,255,255,0.3);
+    }
+  }
+  .form-header {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2em;
+    margin: 0;
+    text-align: center;
+  }
+  .form-content {
+    background-color:  #ffffff;
+    border-radius: 3px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  }
+  input[type=checkbox] {
+    position: absolute;
+    visibility: hidden;
+    left: -10000px;
+    width: 1px;
+  }
+  label {
+    display: block;
+    position: relative;
+    color: #666666;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    cursor: pointer;
+    i {
+      margin-right: 14px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -7px;
+      background-color:  #ffffff;
+      border-radius: 50%;
+      border-width: 1px;
+      border-color:  #d9d9d9;
+      border-style: solid;
+      width: 14px;
+      height: 14px;
+    }
+  }
+  input:checked + label {
+    &:after {
+      content: '';
+      position: absolute;
+      width: 9px;
+      height: 8px;
+      background: url('../images/checkbox-active.png') no-repeat center center;
+      right: 2px;
+      top: 50%;
+      margin-top: -4px;
+    }
+  }
+  .form-row {
+    position: relative;
+    border-top: 1px solid #EBEBEB;
+    padding: 10px 20px;
+    &:first-child {
+      border-top: none;
+    }
+  }
+  .connect-icon {
+    display: block;
+    position: absolute;
+    right: 52px;
+    top: 50%;
+    margin-top: -7px;
+    width: 14px;
+    height: 14px;
+    background: url('../images/connect-icon.png') no-repeat center center;
+    z-index: 20;
+    &.is-active {
+      background: url('../images/connect-icon-active.png') no-repeat center center;
+    }
+  }
+  .form-actions {
+    padding-top: 25px;
+    padding-bottom: 4px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      margin-top: 10px;
+      height: 1px;
+      width: 50%;
+      background: rgba(255,255,255,0.3);
+    }
+    &:before {
+      right: 50%;
+      margin-right: 110px;
+    }
+    &:after {
+      left: 50%;
+      margin-left: 110px;
+    }
+    .form-submit {
+      background-color: #c0392b;
+      border-radius: 3px;
+      border-width: 1px;
+      border-color: #c0392b;
+      border-style: solid;
+      box-shadow: 1px 2px 0px 0px #a63124;
+      width: 143px;
+      height: 33px;
+      color: #e6e6e6;
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+}
