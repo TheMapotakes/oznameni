@@ -70,8 +70,10 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(compress());
+app.use(express.static(__dirname + '/public'));
 app.use(connectAssets({
-  paths: ['public/css', 'public/js'],
+  // paths: ['public/css', 'public/js'],
+  paths: ['public/js'],
   helperContext: app.locals
 }));
 app.use(logger('dev'));
