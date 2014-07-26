@@ -119,6 +119,40 @@ exports.getFacebook = function(req, res, next) {
 };
 
 /**
+ * POST /api/facebook
+ * @param body.notification -> text to send in notification
+ */
+
+exports.postFacebook = function(req, res, next) {
+  var hard_code_app_token = '1489674451274339|ajrXp8uos35biiqGvT8ZFD3zyGE'
+
+
+  var token = _.find(req.user.tokens, { kind: 'facebook' });
+  graph.setAccessToken(token.accessToken);
+
+  var fb_notification_link = "https://graph.facebook.com/10204486454030928/notifications?access_token="
+    + hard_code_app_token
+    + "&href=http://localhost:4000/&template="
+    + req.body.notification
+
+  var notification = {
+    accessToken: hard_code_app_token,
+    href: "https://apps.facebook.com/sistari",
+    template: req.body.notification,
+  };
+
+  request.post(fb_notification_link,
+    notification,
+    function (error, response, body) {
+      console.log(body)
+      if (!error && response.statusCode == 200) {
+          req.flash('success', { msg: 'Notification Sent successfully to Facebook'});
+          res.redirect('/account');
+      }
+  });
+};
+
+/**
  * GET /api/scraping
  * Web scraping example using Cheerio library.
  */

@@ -59,6 +59,17 @@ block content
         button.btn.btn.btn-primary(type='submit')
           span.ion-locked
           | Change Password
+  form.form-horizontal(action='/api/facebook', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label.col-sm-3.control-label(for='notification') Notificaiton Message
+      .col-sm-4
+        input.form-control(type='notification', name='notification', id='notification')
+    .form-group
+      .col-sm-offset-3.col-sm-4
+        button.btn.btn.btn-primary(type='submit')
+          span.ion
+          | Send Notification to Facebook
 
   .page-header
     h3 Delete Account
