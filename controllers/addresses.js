@@ -37,7 +37,7 @@ function searchFor(req, res, tableName) {
         message: 'error'
       })
     } else {
-      res.json(result.rows)
+      res.json(result.rows.slice(0, 30))
     }
   })
 }
