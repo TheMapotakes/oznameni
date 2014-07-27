@@ -1,3 +1,25 @@
 footer
-  .container.text-center
-    p.pull-left 2014 Sistari.md
+  .container
+    .row
+      .col-md-5
+        h3.footer-header Sugestii
+        form.footer-form
+          input(type="text" val="" placeholder="Email")
+          textarea(type="text" val="" placeholder="Text")
+          input.form-submit(type="submit" value="Trimite")
+      .col-md-3
+        h3.footer-header Linkuri utile
+        ul.footer-menu
+          li
+            a(href="#") Gas Natural Fenosa
+          li
+            a(href="#") Termocom
+          li
+            a(href="#") Apa Canal
+      .col-md-3.col-md-offset-1
+        h3.footer-header Contacte
+        a.email(href="mailto:sistari@gmail.com")
+          span.icon-email
+          | sistari@gmail.com
+        p.copyrights © Toate drepturile sunt rezervate.
+
