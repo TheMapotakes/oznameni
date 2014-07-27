@@ -18,10 +18,10 @@ function searchFor(req, res, tableName) {
     , query = 'SELECT * FROM ' + tableName
     , wheres = []
 
-  q = q.replace(/[^a-z0-9\s]/gi,'')
+  q = q.replace(/[^a-z0-9\s]/gi,'').toLowerCase()
 
   if (q !== '') {
-    wheres.push("title LIKE '%" + q + "%'")
+    wheres.push("lower(title) LIKE '%" + q + "%'")
   }
   if (parent_id > 0) {
     wheres.push("parent_id = " + parent_id)
