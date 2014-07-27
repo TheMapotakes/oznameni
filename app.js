@@ -30,6 +30,7 @@ var userController    = require('./controllers/user');
 var suspendController = require('./controllers/suspend');
 var apiController     = require('./controllers/api');
 var contactController = require('./controllers/contact');
+var addressesController = require('./controllers/addresses');
 
 /**
  * API keys and Passport configuration.
@@ -138,6 +139,11 @@ app.post('/account/password', passportConf.isAuthenticated, userController.postU
 app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 app.get('/future_suspends', suspendController.getFutureSuspends);
+
+app.get('/addresses/region', addressesController.region);
+app.get('/addresses/locality', addressesController.locality);
+app.get('/addresses/street', addressesController.street);
+app.get('/addresses/building', addressesController.building);
 
 /**
  * API examples routes.
