@@ -43,7 +43,9 @@
                 label(for="notification-facebook")
                   i.icon-facebook
                   | Facebook
-                a.connect-icon.is-active(href="#" data-connect="facebook")
+                form(method='POST')
+                  input(type='hidden', name='_csrf', value=_csrf)
+                  a.connect-icon.is-active(href="/auth/facebook" data-connect="facebook")
               .form-row
                 input(type="checkbox" id="notification-ok")
                 label(for="notification-ok")
