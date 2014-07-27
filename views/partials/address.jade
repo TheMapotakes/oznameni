@@ -1,22 +1,9 @@
 .address#address
   h5 Introdu adresa ta pentru a încerca notificările
   .selects
-    select.select2#address-region(data-placeholder='Regiune')
-      option(value='1') Chisinau
-      option(value='2') Balti
-      option(value='3') Cahul
-      option(value='4') Giurgilesti
-      option(value='5') Giurgilesti
-      option(value='6') Giurgilesti
-      option(value='7') Giurgilesti
-      option(value='8') Giurgilesti
-      option(value='9') Giurgilesti
-      option(value='10') Giurgilesti
-      option(value='11') Giurgilesti
-      option(value='12') Giurgilesti
-      option(value='13') Giurgilesti
-    select.select2#address-locality(disabled='disabled', data-placeholder='Localitate')
-    select.select2#address-street(disabled='disabled')
-    select.select2#address-building(disabled='disabled')
+    input.select2#address-region(type='hidden',data-placeholder='Regiune', data-type='region')
+    input.select2#address-locality(data-placeholder='Localitate', data-type='locality', data-parent='#address-region')
+    input.select2#address-street(data-placeholder='Strada', data-type='street', data-parent='#address-locality')
+    input.select2#address-building(data-placeholder='Bloc', data-type='building', data-parent='#address-street')
   .action
     button.btn.btn-default Vezi sistările planificate
